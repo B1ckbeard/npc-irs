@@ -1,15 +1,38 @@
 import { Link } from 'react-router-dom';
+import { Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 
 const NavBar = () => {
   return (
-    <div className='d-flex align-items-center justify-content-center position-sticky top-0 start-0 vh-100 bg-dark'
-      style={{ width: '150px' }}
+    <Drawer
+      variant="permanent"
+      anchor="left"
+      sx={{
+        width: 150,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          width: 150,
+          boxSizing: 'border-box',
+          backgroundColor: 'grey.800',
+          color: 'white',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+        },
+      }}
     >
-      <nav className="nav flex-column">
-        <Link to="/" className="nav-link text-light">Dashboard</Link>
-        <Link to="/citizens" className="nav-link text-light">Граждане</Link>
-      </nav>
-    </div>
+      <List>
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/" sx={{ justifyContent: 'center' }}>
+            <ListItemText primary="Dashboard" sx={{ textAlign: 'center' }} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to="/citizens" sx={{ justifyContent: 'center' }}>
+            <ListItemText primary="Граждане" sx={{ textAlign: 'center' }} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Drawer>
   );
 };
 

@@ -1,15 +1,17 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Box, Container } from '@mui/material';
 import NavBar from '../components/NavBar';
 import CitizensList from '../components/CitizensList';
 
 const Citizens = () => {
   const [data, setData] = useState([]);
+  const citizensCount = 50;
 
   useEffect(() => {
     const fetchData = async () => {
       const requests = [];
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < citizensCount; i++) {
         requests.push(axios.get('https://api.randomdatatools.ru/'));
       }
       try {
@@ -24,11 +26,13 @@ const Citizens = () => {
   }, []);
 
   return (
-    <div className="container vw-100 vh-100 d-flex p-0">
+    <Box sx={{ display: 'flex', height: '100vh' }}>
       <NavBar />
-      <CitizensList data={data} />
-    </div>
-  )
-}
+      <Container maxWidth="lg" sx={{ padding: '16px', flexGrow: 1 }}>
+        <CitizensList data={data} />
+      </Container>
+    </Box>
+  );
+};
 
-export default Citizens
+export default Citizens;
