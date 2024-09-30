@@ -7,10 +7,10 @@ const NavBar = () => {
       variant="permanent"
       anchor="left"
       sx={{
-        width: 150,
+        width: 120,
         flexShrink: 0,
         '& .MuiDrawer-paper': {
-          width: 150,
+          width: 120,
           boxSizing: 'border-box',
           backgroundColor: 'grey.800',
           color: 'white',

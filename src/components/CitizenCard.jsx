@@ -26,12 +26,6 @@ const TabPanel = (props) => {
   );
 };
 
-const a11yProps = (index) => {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-};
 
 const CitizenCard = ({ person }) => {
   const [value, setValue] = useState(0);
@@ -52,11 +46,11 @@ const CitizenCard = ({ person }) => {
             scrollButtons="auto"
             aria-label="scrollable auto tabs example"
           >
-            <Tab label="Основные данные" {...a11yProps(0)} />
-            <Tab label="Образование" {...a11yProps(1)} />
-            <Tab label="Паспортные данные" {...a11yProps(2)} />
-            <Tab label="ИНН, СНИЛС, ОМС" {...a11yProps(3)} />
-            <Tab label="Автомобиль" {...a11yProps(4)} />
+            <Tab label="Основные данные"/>
+            <Tab label="Образование"/>
+            <Tab label="Паспортные данные" />
+            <Tab label="ИНН, СНИЛС, ОМС" />
+            <Tab label="Автомобиль" />
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>

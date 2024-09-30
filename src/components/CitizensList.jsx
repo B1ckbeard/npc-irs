@@ -70,8 +70,8 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <div style={{ display: 'flex', height: '100%', padding: '16px' }}>
-      <div style={{ width: '15%', padding: '16px' }}>
+    <div style={{ display: 'flex', height: '100%' }}>
+      <div style={{ padding: '16px' }}>
         <h3>Фильтры</h3>
         <FormControl fullWidth>
           <InputLabel id="gender-label">Пол</InputLabel>
@@ -123,6 +123,7 @@ const CitizensList = ({ data }) => {
                 <TableRow 
                   key={person.id} 
                   onClick={() => handleRowClick(person)} 
+                  selected={selectedPerson === person}
                   style={{ cursor: 'pointer' }}
                 >
                   <TableCell>{`${person.LastName} ${person.FirstName} ${person.FatherName}`}</TableCell>
