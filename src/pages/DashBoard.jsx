@@ -45,6 +45,7 @@ const Dashboard = () => {
           Dashboard
         </Typography>
         <Grid2 container spacing={2}>
+          
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Card elevation={3}
               sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
