@@ -1,59 +1,19 @@
-import { useState } from 'react';
-import {
-  Tabs,
-  Tab,
-  Typography,
-  Box
-} from '@mui/material';
-
-const TabPanel = (props) => {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-};
-
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const CitizenCard = ({ person }) => {
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <div>
       <h3>Карточка с данными</h3>
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            variant="scrollable"
-            scrollButtons="auto"
-            aria-label="scrollable auto tabs example"
-          >
-            <Tab label="Основные данные"/>
-            <Tab label="Образование"/>
-            <Tab label="Паспортные данные" />
-            <Tab label="ИНН, СНИЛС, ОМС" />
-            <Tab label="Автомобиль" />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
+      <Tabs>
+        <TabList>
+          <Tab>Основные данные</Tab>
+          <Tab>Образование</Tab>
+          <Tab>Паспортные данные</Tab>
+          <Tab>ИНН, СНИЛС, ОМС</Tab>
+          <Tab>Автомобиль</Tab>
+        </TabList>
+        <TabPanel>
           <p>Фамилия: {person.LastName}</p>
           <p>Имя: {person.FirstName}</p>
           <p>Отчество: {person.FatherName}</p>
@@ -63,13 +23,13 @@ const CitizenCard = ({ person }) => {
           <p>Номер телефона: {person.Phone}</p>
           <p>Электронная почта: {person.Email}</p>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+        <TabPanel>
           <p>Специальность: {person.EduSpecialty}</p>
           <p>Направление: {person.EduProgram}</p>
           <p>Учебное заведение: {person.EduName}</p>
           <p>Дата окончания обучения: {person.EduYear}</p>
         </TabPanel>
-        <TabPanel value={value} index={2}>
+        <TabPanel>
           <p>Адрес: {person.Address}</p>
           <p>Страна: {person.Country}</p>
           <p>Регион: {person.Region}</p>
@@ -82,12 +42,12 @@ const CitizenCard = ({ person }) => {
           <p>Кем выдан: {person.PasportOtd}</p>
           <p>Дата выдачи паспорта: {person.PasportDate}</p>
         </TabPanel>
-        <TabPanel value={value} index={3}>
+        <TabPanel>
           <p>ИНН: {person.inn_fiz}</p>
           <p>СНИЛС: {person.snils}</p>
           <p>ОМС: {person.oms}</p>
         </TabPanel>
-        <TabPanel value={value} index={4}>
+        <TabPanel>
           <p>Марка автомобиля: {person.CarBrand}</p>
           <p>Модель автомобиля: {person.CarModel}</p>
           <p>Год выпуска: {person.CarYear}</p>
@@ -99,7 +59,7 @@ const CitizenCard = ({ person }) => {
           <p>Серия/номер ПТС: {person.CarPTS}</p>
           <p>Дата выдачи ПТС: {person.CarPTSDate}</p>
         </TabPanel>
-      </Box>
+      </Tabs>
     </div>
   );
 };

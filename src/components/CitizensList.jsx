@@ -43,7 +43,7 @@ const CitizensList = ({ data }) => {
       ...filters,
       [name]: value,
     });
-    setPage(1); // Сброс страницы при изменении фильтров
+    setPage(1);
   };
 
   const handleAgeRangeChange = (event, newValue) => {
@@ -51,7 +51,7 @@ const CitizensList = ({ data }) => {
       ...filters,
       ageRange: newValue,
     });
-    setPage(1); // Сброс страницы при изменении фильтров
+    setPage(1);
   };
 
   const applyFilters = () => {
@@ -71,7 +71,7 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between' }}>
+    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between', padding:'20px' }}>
       <Box sx={{ height: '100%', padding: '20px', boxShadow: 10, borderRadius: 2 }}>
         <h3>Фильтры</h3>
         <FormControl fullWidth>
@@ -109,7 +109,7 @@ const CitizensList = ({ data }) => {
           Сбросить фильтры
         </Button>
       </Box>
-      <Box sx={{ height: '100%', width: '300px', padding: '20px', marginLeft: '10px', boxShadow: 10, borderRadius: 2 }}>
+      <Box sx={{ height: '100%', width: '400px', padding: '20px', marginLeft: '20px', boxShadow: 10, borderRadius: 2 }}>
         <h3>Граждане</h3>
         <p>Всего: {filteredData.length}</p>
         <TableContainer component={Paper}>
@@ -141,7 +141,7 @@ const CitizensList = ({ data }) => {
           style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
         />
       </Box>
-      <Box sx={{ height: '100%', width: '500px', padding: '20px', marginLeft: '10px', boxShadow: 10, borderRadius: 2 }}>
+      <Box sx={{ height: '100%', width: '500px', padding: '20px', marginLeft: '20px', boxShadow: 10, borderRadius: 2 }}>
           {selectedPerson && (
             <CitizenCard person={selectedPerson} />
           )}

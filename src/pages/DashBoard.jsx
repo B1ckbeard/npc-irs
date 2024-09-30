@@ -1,29 +1,14 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Box, Container, Grid2, Paper, Typography, Card, CardContent, CircularProgress } from '@mui/material';
+import { Container, Grid2, Paper, Typography, Card, CardContent } from '@mui/material';
 import { Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import NavBar from '../components/NavBar';
+import citizens from '../Data.json';
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const requests = [];
-      for (let i = 0; i < 20; i++) {
-        requests.push(axios.get('https://api.randomdatatools.ru/'));
-      }
-      try {
-        const responses = await Promise.all(requests);
-        const newData = responses.map(response => response.data);
-        setData(newData);
-        setLoading(false);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchData();
+    setData(citizens);
   }, []);
 
   const genderData = data.reduce((acc, person) => {
@@ -53,21 +38,16 @@ const Dashboard = () => {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57', '#ffc658'];
 
   return (
-    <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
+    <div style={{ height: '100%' }}>
       <NavBar />
       <Container maxWidth="lg" sx={{ padding: '16px', flexGrow: 1 }}>
-        <Typography variant="h4" gutterBottom align="center">
+        <Typography variant="h4" gutterBottom>
           Dashboard
         </Typography>
-        {loading ? (
-          <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <CircularProgress />
-          </Box>
-        ) : (
-        <Grid2 container spacing={3}>
-          <Grid2 item xs={12} md={6} width={500} height={300}>
+        <Grid2 container spacing={2}>
+          <Grid2 size={6}>
             <Card elevation={3}
-            sx={{ height:'150px', display:'flex', alignItems:'center', justifyContent:'center', marginBottom: '10px' }}
+              sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
             >
               <CardContent>
                 <Typography variant="h6" align="center" gutterBottom>
@@ -78,8 +58,10 @@ const Dashboard = () => {
                 </Typography>
               </CardContent>
             </Card>
+          </Grid2>
+          <Grid2 size={6}>
             <Card elevation={3}
-            sx={{ height:'150px', display:'flex', alignItems:'center', justifyContent:'center' }}
+              sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <CardContent>
                 <Typography variant="h6" align="center" gutterBottom>
@@ -91,12 +73,12 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </Grid2>
-          <Grid2 item xs={12} md={6} width={500} height={300}>
-            <Paper elevation={3}>
+          <Grid2 size={4}>
+            <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по полу
               </Typography>
-              <PieChart width={500} height={300}>
+              <PieChart width={300} height={300}>
                 <Pie
                   data={genderChartData}
                   dataKey="value"
@@ -105,7 +87,6 @@ const Dashboard = () => {
                   cy="50%"
                   outerRadius={80}
                   fill="#8884d8"
-                  label
                 >
                   {genderChartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -116,37 +97,32 @@ const Dashboard = () => {
               </PieChart>
             </Paper>
           </Grid2>
-          <Grid2 item xs={12}>
-            <Paper elevation={3}>
+          <Grid2 size={4}>
+            <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по городам
               </Typography>
-              <PieChart width={500} height={300}>
+              <PieChart width={300} height={300}>
                 <Pie
                   data={cityChartData}
-                  dataKey="value"
-                  nameKey="name"
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
-                  fill="#8884d8"
-                  label
                 >
                   {cityChartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />
-                <Legend />
               </PieChart>
             </Paper>
           </Grid2>
-          <Grid2 item xs={12}>
-            <Paper elevation={3}>
+          <Grid2 size={4}>
+            <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
-                Распределение по маркам автомобилей
+                Распределение по маркам авто
               </Typography>
-              <PieChart width={500} height={300}>
+              <PieChart width={300} height={300}>
                 <Pie
                   data={carBrandChartData}
                   dataKey="value"
@@ -155,21 +131,18 @@ const Dashboard = () => {
                   cy="50%"
                   outerRadius={80}
                   fill="#8884d8"
-                  label
                 >
                   {carBrandChartData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />
-                <Legend />
               </PieChart>
             </Paper>
           </Grid2>
         </Grid2>
-        )}
       </Container>
-    </Box>
+    </div>
   );
 };
 
