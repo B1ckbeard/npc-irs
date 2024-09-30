@@ -14,7 +14,8 @@ import {
   TableRow, 
   Paper, 
   Pagination,
-  Box
+  Box,
+  Grid2
 } from '@mui/material';
 import CitizenCard from './CitizenCard';
 
@@ -71,8 +72,9 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between', padding:'16px' }}>
-      <Box sx={{ height: '100%', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
+    <Grid2 container spacing={2}>
+      <Grid2 size={{ xs: 12, md: 2 }}>
+        <Box sx={{ height: '100%', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
         <h3>Фильтры</h3>
         <FormControl fullWidth>
           <InputLabel id="gender-label">Пол</InputLabel>
@@ -108,8 +110,11 @@ const CitizensList = ({ data }) => {
         >
           Сбросить фильтры
         </Button>
-      </Box>
-      <Box sx={{ height: '100%', width: '400px', padding: '20px', marginLeft: '20px', boxShadow: 4, borderRadius: 1 }}>
+        </Box>
+      </Grid2>
+
+      <Grid2 size={{ xs: 12, md: 5 }}>
+      <Box sx={{ height: '100%', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
         <h3>Граждане</h3>
         <p>Всего: {filteredData.length}</p>
         <TableContainer component={Paper}>
@@ -141,12 +146,16 @@ const CitizensList = ({ data }) => {
           style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
         />
       </Box>
-      <Box sx={{ height: '100%', width: '500px', padding: '20px', marginLeft: '20px', boxShadow: 4, borderRadius: 1 }}>
+      </Grid2>
+
+      <Grid2 size={{ xs: 12, md: 5 }}>
+      <Box sx={{ height: '100%', width: '500px', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
           {selectedPerson && (
             <CitizenCard person={selectedPerson} />
           )}
       </Box>
-    </Box>
+      </Grid2>
+    </Grid2>
   );
 };
 

@@ -40,14 +40,14 @@ const Dashboard = () => {
   return (
     <div style={{ height: '100%' }}>
       <NavBar />
-      <Container maxWidth="lg" sx={{ padding: '16px', flexGrow: 1 }}>
+      <Container maxWidth="lg" sx={{ marginLeft:'120px' }}>
         <Typography variant="h4" gutterBottom>
           Dashboard
         </Typography>
         <Grid2 container spacing={2}>
-          <Grid2 size={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
             <Card elevation={3}
-              sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '10px' }}
+              sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <CardContent>
                 <Typography variant="h6" align="center" gutterBottom>
@@ -59,7 +59,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </Grid2>
-          <Grid2 size={6}>
+          <Grid2 size={{ xs: 12, md: 6 }}>
             <Card elevation={3}
               sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
@@ -73,7 +73,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </Grid2>
-          <Grid2 size={4}>
+          <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по полу
@@ -97,7 +97,7 @@ const Dashboard = () => {
               </PieChart>
             </Paper>
           </Grid2>
-          <Grid2 size={4}>
+          <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по городам
@@ -117,7 +117,7 @@ const Dashboard = () => {
               </PieChart>
             </Paper>
           </Grid2>
-          <Grid2 size={4}>
+          <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по маркам авто

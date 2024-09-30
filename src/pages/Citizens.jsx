@@ -14,7 +14,7 @@ const Citizens = () => {
   return (
     <div style={{ height: '100%' }}>
       <NavBar />
-      <Container>
+      <Container maxWidth="lg" sx={{ marginLeft:'120px' }}>
         <CitizensList data={data} />
       </Container>
     </div>
