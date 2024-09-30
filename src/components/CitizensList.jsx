@@ -71,7 +71,7 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between', padding:'20px' }}>
+    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between', padding:'16px' }}>
       <Box sx={{ height: '100%', padding: '20px', boxShadow: 10, borderRadius: 2 }}>
         <h3>Фильтры</h3>
         <FormControl fullWidth>
