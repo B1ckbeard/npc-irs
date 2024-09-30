@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Container, Grid2, Paper, Typography, Card, CardContent } from '@mui/material';
+import { Box, Container, Grid2, Paper, Typography, Card, CardContent, CircularProgress } from '@mui/material';
 import { Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
-import { Gauge } from '@mui/x-charts/Gauge';
 import NavBar from '../components/NavBar';
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,6 +18,7 @@ const Dashboard = () => {
         const responses = await Promise.all(requests);
         const newData = responses.map(response => response.data);
         setData(newData);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -52,15 +53,22 @@ const Dashboard = () => {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57', '#ffc658'];
 
   return (
-    <Box sx={{ display: 'flex', height: '100%' }}>
+    <Box sx={{ display: 'flex', height: '100%', justifyContent: 'center' }}>
       <NavBar />
       <Container maxWidth="lg" sx={{ padding: '16px', flexGrow: 1 }}>
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom align="center">
           Dashboard
         </Typography>
+        {loading ? (
+          <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <CircularProgress />
+          </Box>
+        ) : (
         <Grid2 container spacing={3}>
           <Grid2 item xs={12} md={6} width={500} height={300}>
-            <Card elevation={3} sx={{ marginBottom: '16px' }}>
+            <Card elevation={3}
+            sx={{ height:'150px', display:'flex', alignItems:'center', justifyContent:'center', marginBottom: '10px' }}
+            >
               <CardContent>
                 <Typography variant="h6" align="center" gutterBottom>
                   Общее количество граждан
@@ -70,20 +78,16 @@ const Dashboard = () => {
                 </Typography>
               </CardContent>
             </Card>
-            <Card elevation={3}>
+            <Card elevation={3}
+            sx={{ height:'150px', display:'flex', alignItems:'center', justifyContent:'center' }}
+            >
               <CardContent>
                 <Typography variant="h6" align="center" gutterBottom>
                   Средний возраст
                 </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                  <Gauge
-                    width={100}
-                    height={100}
-                    value={averageAge.toFixed(0)}
-                    startAngle={-90}
-                    endAngle={90}
-                  />
-                </Box>
+                <Typography variant="h4" align="center">
+                  {averageAge.toFixed(0)}
+                </Typography>
               </CardContent>
             </Card>
           </Grid2>
@@ -163,6 +167,7 @@ const Dashboard = () => {
             </Paper>
           </Grid2>
         </Grid2>
+        )}
       </Container>
     </Box>
   );

@@ -13,7 +13,8 @@ import {
   TableHead, 
   TableRow, 
   Paper, 
-  Pagination 
+  Pagination,
+  Box
 } from '@mui/material';
 import CitizenCard from './CitizenCard';
 
@@ -70,8 +71,8 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
-      <div style={{ padding: '16px' }}>
+    <Box sx={{ display: 'flex', height: '100%', justifyContent:'space-between' }}>
+      <Box sx={{ height: '100%', padding: '20px', boxShadow: 10, borderRadius: 2 }}>
         <h3>Фильтры</h3>
         <FormControl fullWidth>
           <InputLabel id="gender-label">Пол</InputLabel>
@@ -107,8 +108,8 @@ const CitizensList = ({ data }) => {
         >
           Сбросить фильтры
         </Button>
-      </div>
-      <div style={{ width: '30%', padding: '16px' }}>
+      </Box>
+      <Box sx={{ height: '100%', width: '300px', padding: '20px', marginLeft: '10px', boxShadow: 10, borderRadius: 2 }}>
         <h3>Граждане</h3>
         <p>Всего: {filteredData.length}</p>
         <TableContainer component={Paper}>
@@ -139,15 +140,13 @@ const CitizensList = ({ data }) => {
           color="primary"
           style={{ marginTop: '20px', display: 'flex', justifyContent: 'center' }}
         />
-      </div>
-      <div style={{ width: '50%', padding: '16px' }}>
-        <div style={{ marginLeft: '20px' }}>
+      </Box>
+      <Box sx={{ height: '100%', width: '500px', padding: '20px', marginLeft: '10px', boxShadow: 10, borderRadius: 2 }}>
           {selectedPerson && (
             <CitizenCard person={selectedPerson} />
           )}
-        </div>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 
