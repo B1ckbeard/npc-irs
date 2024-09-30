@@ -12,7 +12,8 @@ import {
   TableContainer, 
   TableHead, 
   TableRow, 
-  Paper, 
+  Paper,
+  Typography,
   Pagination,
   Box,
   Grid2
@@ -72,10 +73,12 @@ const CitizensList = ({ data }) => {
   const paginatedData = filteredData.slice((page - 1) * rowsPerPage, page * rowsPerPage);
 
   return (
-    <Grid2 container spacing={2}>
+    <Grid2 container spacing={2} sx={{ padding:'16px' }}>
       <Grid2 size={{ xs: 12, md: 2 }}>
         <Box sx={{ height: '100%', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
-        <h3>Фильтры</h3>
+          <Typography variant="h5" align='center' gutterBottom>
+            Фильтры
+          </Typography>
         <FormControl fullWidth>
           <InputLabel id="gender-label">Пол</InputLabel>
           <Select
@@ -115,8 +118,12 @@ const CitizensList = ({ data }) => {
 
       <Grid2 size={{ xs: 12, md: 5 }}>
       <Box sx={{ height: '100%', padding: '20px', boxShadow: 4, borderRadius: 1 }}>
-        <h3>Граждане</h3>
-        <p>Всего: {filteredData.length}</p>
+        <Typography variant="h5" align='center' gutterBottom>
+          Граждане
+        </Typography>
+        <Typography variant="subtitle1" align='center' gutterBottom>
+          Всего: {filteredData.length}
+        </Typography>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>

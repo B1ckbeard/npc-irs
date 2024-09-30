@@ -1,10 +1,13 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { Typography } from '@mui/material';
 
 const CitizenCard = ({ person }) => {
   return (
     <div>
-      <h3>Карточка с данными</h3>
+      <Typography variant="h5" align='center' gutterBottom>
+        Карточка с данными
+      </Typography>
       <Tabs>
         <TabList>
           <Tab>Основные данные</Tab>

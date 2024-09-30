@@ -40,8 +40,8 @@ const Dashboard = () => {
   return (
     <div style={{ height: '100%' }}>
       <NavBar />
-      <Container maxWidth="lg" sx={{ marginLeft:'120px' }}>
-        <Typography variant="h4" gutterBottom>
+      <Container maxWidth="lg" sx={{ marginLeft:'120px', padding:'16px' }}>
+        <Typography variant="h4" align='center' gutterBottom sx={{ marginBottom:'16px' }}>
           Dashboard
         </Typography>
         <Grid2 container spacing={2}>
@@ -59,6 +59,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </Grid2>
+
           <Grid2 size={{ xs: 12, md: 6 }}>
             <Card elevation={3}
               sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
@@ -73,6 +74,7 @@ const Dashboard = () => {
               </CardContent>
             </Card>
           </Grid2>
+
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
@@ -97,6 +99,7 @@ const Dashboard = () => {
               </PieChart>
             </Paper>
           </Grid2>
+
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
@@ -117,6 +120,7 @@ const Dashboard = () => {
               </PieChart>
             </Paper>
           </Grid2>
+          
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={3} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
