@@ -22,12 +22,12 @@ const NavBar = () => {
     >
       <List>
         <ListItem disablePadding>
-          <ListItemButton component={Link} to="/" sx={{ justifyContent: 'center' }}>
+          <ListItemButton component={Link} to="/npc-irs" sx={{ justifyContent: 'center' }}>
             <ListItemText primary="Dashboard" sx={{ textAlign: 'center' }} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component={Link} to="/citizens" sx={{ justifyContent: 'center' }}>
+          <ListItemButton component={Link} to="/npc-irs/citizens" sx={{ justifyContent: 'center' }}>
             <ListItemText primary="Граждане" sx={{ textAlign: 'center' }} />
           </ListItemButton>
         </ListItem>

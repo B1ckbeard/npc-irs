@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Box, Container } from '@mui/material';
+import { Box, Container, CircularProgress } from '@mui/material';
 import NavBar from '../components/NavBar';
 import CitizensList from '../components/CitizensList';
 
 const Citizens = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const citizensCount = 50;
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const Citizens = () => {
         const responses = await Promise.all(requests);
         const newData = responses.map(response => response.data);
         setData(newData);
+        setLoading(false);
       } catch (err) {
         console.log(err);
       }
@@ -26,12 +29,18 @@ const Citizens = () => {
   }, []);
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh' }}>
+    <div style={{ height: '100%' }}>
       <NavBar />
-      <Container maxWidth="lg" sx={{ padding: '16px', flexGrow: 1 }}>
-        <CitizensList data={data} />
+      <Container>
+        {loading ? (
+          <Box sx={{ width: '100%', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <CircularProgress />
+          </Box>
+        ) : (
+          <CitizensList data={data} />
+        )}
       </Container>
-    </Box>
+    </div>
   );
 };
 
