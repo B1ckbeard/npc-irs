@@ -1,10 +1,10 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Typography } from '@mui/material';
+import { Typography, Paper } from '@mui/material';
 
 const CitizenCard = ({ person }) => {
   return (
-    <div>
+    <Paper elevation={2} sx={{padding:'16px', paddingBottom:'4px', height: '100%'}}>
       <Typography variant="h5" align='center' gutterBottom>
         Карточка с данными
       </Typography>
@@ -63,7 +63,7 @@ const CitizenCard = ({ person }) => {
           <p>Дата выдачи ПТС: {person.CarPTSDate}</p>
         </TabPanel>
       </Tabs>
-    </div>
+    </Paper>
   );
 };
 

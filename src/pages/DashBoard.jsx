@@ -45,9 +45,9 @@ const Dashboard = () => {
           Dashboard
         </Typography>
         <Grid2 container spacing={2}>
-          
+
           <Grid2 size={{ xs: 12, md: 6 }}>
-            <Card elevation={3}
+            <Card elevation={2}
               sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <CardContent>
@@ -62,7 +62,7 @@ const Dashboard = () => {
           </Grid2>
 
           <Grid2 size={{ xs: 12, md: 6 }}>
-            <Card elevation={3}
+            <Card elevation={2}
               sx={{ height: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
               <CardContent>
@@ -77,7 +77,7 @@ const Dashboard = () => {
           </Grid2>
 
           <Grid2 size={{ xs: 12, md: 4 }}>
-            <Paper elevation={3} sx={{padding:'16px'}} align="center">
+            <Paper elevation={2} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по полу
               </Typography>
@@ -102,7 +102,7 @@ const Dashboard = () => {
           </Grid2>
 
           <Grid2 size={{ xs: 12, md: 4 }}>
-            <Paper elevation={3} sx={{padding:'16px'}} align="center">
+            <Paper elevation={2} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по городам
               </Typography>
@@ -123,7 +123,7 @@ const Dashboard = () => {
           </Grid2>
           
           <Grid2 size={{ xs: 12, md: 4 }}>
-            <Paper elevation={3} sx={{padding:'16px'}} align="center">
+            <Paper elevation={2} sx={{padding:'16px'}} align="center">
               <Typography variant="h6" align="center" gutterBottom>
                 Распределение по маркам авто
               </Typography>
