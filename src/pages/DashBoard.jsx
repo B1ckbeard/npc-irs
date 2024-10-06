@@ -45,7 +45,7 @@ const Dashboard = () => {
     <>
       <NavBar />
       <Container maxWidth="lg" sx={{ marginLeft:'120px', padding:'16px' }}>
-        <Typography variant="h4" align='center' gutterBottom sx={{ marginBottom:'16px' }}>
+        <Typography variant="h4" align='center' sx={{ marginBottom:'16px' }}>
           Dashboard
         </Typography>
         <Grid2 container spacing={2}>
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={2} sx={{padding:'16px'}} align="center">
-              <Typography variant="h6" align="center" gutterBottom>
+              <Typography variant="h6" align="center">
                 Распределение по полу
               </Typography>
               <PieChart width={300} height={300}>
@@ -107,7 +107,7 @@ const Dashboard = () => {
 
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={2} sx={{padding:'16px'}} align="center">
-              <Typography variant="h6" align="center" gutterBottom>
+              <Typography variant="h6" align="center">
                 Распределение по городам
               </Typography>
               <PieChart width={300} height={300}>
@@ -128,7 +128,7 @@ const Dashboard = () => {
           
           <Grid2 size={{ xs: 12, md: 4 }}>
             <Paper elevation={2} sx={{padding:'16px'}} align="center">
-              <Typography variant="h6" align="center" gutterBottom>
+              <Typography variant="h6" align="center">
                 Распределение по маркам авто
               </Typography>
               <PieChart width={300} height={300}>
