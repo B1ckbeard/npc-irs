@@ -16,9 +16,11 @@ const Dashboard = () => {
     acc[gender] = (acc[gender] || 0) + 1;
     return acc;
   }, {});
+
   const genderChartData = Object.keys(genderData).map(gender => ({ name: gender, value: genderData[gender] }));
 
   const totalCitizens = data.length;
+
   const averageAge = data.reduce((sum, person) => sum + person.YearsOld, 0) / totalCitizens || 0;
 
   const cityData = data.reduce((acc, person) => {
@@ -26,6 +28,7 @@ const Dashboard = () => {
     acc[city] = (acc[city] || 0) + 1;
     return acc;
   }, {});
+
   const cityChartData = Object.keys(cityData).map(city => ({ name: city, value: cityData[city] }));
 
   const carBrandData = data.reduce((acc, person) => {
@@ -33,12 +36,13 @@ const Dashboard = () => {
     acc[brand] = (acc[brand] || 0) + 1;
     return acc;
   }, {});
+  
   const carBrandChartData = Object.keys(carBrandData).map(brand => ({ name: brand, value: carBrandData[brand] }));
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d', '#a4de6c', '#d0ed57', '#ffc658'];
 
   return (
-    <div style={{ height: '100%' }}>
+    <>
       <NavBar />
       <Container maxWidth="lg" sx={{ marginLeft:'120px', padding:'16px' }}>
         <Typography variant="h4" align='center' gutterBottom sx={{ marginBottom:'16px' }}>
@@ -147,7 +151,7 @@ const Dashboard = () => {
           </Grid2>
         </Grid2>
       </Container>
-    </div>
+    </>
   );
 };
 
